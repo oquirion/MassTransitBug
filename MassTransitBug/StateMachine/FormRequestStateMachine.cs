@@ -29,6 +29,7 @@ public class FormRequestStateMachine : MassTransitStateMachine<FormRequest>
             When(SendNotification)
                 .Then(x =>
                 {
+                    Thread.Sleep(3000);
                     x.Saga.SomeProp = x.Message.SomeProp;
                 }));
     }
